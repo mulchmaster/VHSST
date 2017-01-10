@@ -3,11 +3,30 @@
         <widgets:action-bar />
     </Page.actionBar>
 
-    <StackLayout>
-        <!-- additional view content -->
-        <!-- START_CUSTOM_CODE_homeView -->
-        <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+    <GridLayout>
 
-        <!-- END_CUSTOM_CODE_homeView -->
-    </StackLayout>
+        <StackLayout>
+
+            <Image src="~/images/VHSlogo.png" cssClass="app-logo" />
+
+            <TextField id="username" cssClass="text-input" hint="Student ID" keyboardType="email" text="{{ email }}"/>
+
+            <TextField id="password" cssClass="text-input" hint="Password" secure="true" text="{{ password }}"/>
+
+            <Button text="Log in" id="login" cssClass="login-button" tap="logIn" />
+
+            <Label text="Don't have an account yet?" cssClass="sub-title" />
+
+            <Button text="Sign up for free" id="signup" tap="navigateRegister" cssClass="signup-button"/>
+
+        </StackLayout>
+
+        <GridLayout visibility="{{ isLoading ? 'visible' : 'collapsed' }}" verticalAlignment="stretch" horizontalAlignment="stretch" >
+
+            <ActivityIndicator busy="{{ isLoading }}" cssClass="activity-indicator" />
+
+        </GridLayout>
+
+    </GridLayout>
+
 </Page>
